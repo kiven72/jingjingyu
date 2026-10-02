@@ -1,0 +1,13 @@
+.featureslot-pet, .featureslot-dress { max-width: 880px; }
+.home-note { margin: 6px 0 0; font-size: 13px; line-height: 1.6; color: var(--muted-foreground); }
+.companion-row { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 12px; align-items: start; padding: 8px 0; }
+.companion-label { padding-top: 6px; font-size: 14px; color: var(--ink-soft); }
+.companion-control > input { width: 100%; max-width: 320px; }
+.companion-rangebox { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
+.companion-range { flex: 1; max-width: 280px; accent-color: var(--accent); }
+.companion-rangeval { min-width: 44px; font-size: 13px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) { .companion-row { grid-template-columns: 1fr; gap: 4px; } }
+.companion-version { display: block; margin-top: 6px; font-size: 11.5px; color: var(--ink-dim); text-decoration: none; }
+.companion-version:hover { color: var(--ink); text-decoration: underline; }
+.navgroup + .navgroup { border-top: 0; padding-top: 0; }
+.companion-dressframe { display: block; width: 100%; height: 620px; margin-top: 10px; border: 1px solid var(--border); border-radius: 12px; background: transparent; }

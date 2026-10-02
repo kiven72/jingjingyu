@@ -1,0 +1,41 @@
+{
+  "upstreamCommit": "2dcead0df4eb5d2b92d4a23ae154d6a4eab42cde",
+  "identicalFiles": 572,
+  "modified": [
+    "README.md",
+    "app/icons/icon.ico",
+    "app/icons/icon.png",
+    "app/icons/tray.png",
+    "app/icons/tray@2x.png",
+    "app/main.cjs",
+    "console/branding.ts",
+    "console/features/pet/index.ts",
+    "console/features/release.ts",
+    "console/main.ts",
+    "core/companion.ts",
+    "core/seed.ts",
+    "electron-builder.yml",
+    "package.json",
+    "packages/cortico-world-desktop-pet/web/pet-app.js",
+    "packages/cortico-world-desktop-pet/web/pet.css",
+    "packages/cortico-world-desktop-pet/web/pet.html",
+    "scripts/pack.ts",
+    "scripts/stage.ts"
+  ],
+  "removed": [
+    "console/features/home/home.css",
+    "console/features/home/index.ts",
+    "console/features/home/model.ts",
+    "console/features/mode.ts",
+    "console/features/voice/index.ts",
+    "core/guide.ts"
+  ],
+  "criticalFilesUnchanged": [
+    "packages/cortico-world-desktop-pet/web/pet-core.js",
+    "packages/cortico-world-desktop-pet/web/whale/figure.js",
+    "packages/cortico-world-desktop-pet/web/rig/rig.js",
+    "packages/cortico-world-desktop-pet/web/rig/canvas-rig.js",
+    "packages/cortico-world-desktop-pet/web/whale/model.json",
+    "packages/cortico-world-desktop-pet/host/electron-main.cjs"
+  ]
+}
