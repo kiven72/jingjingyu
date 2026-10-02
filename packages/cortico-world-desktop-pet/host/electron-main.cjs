@@ -139,28 +139,10 @@ function sampleBackdrop(win, { rect, skip = [] }) {
   return out;
 }
 
-/**
- * 32×32 tray icon drawn in code: the C outline and two ring eyes, white on the brand green; on
- * macOS a black template image the menu bar tints to its own color.
- */
+const WINDOW_ICON = join(__dirname, 'whale-icon.png');
+
 function trayIcon() {
-  const mac = process.platform === 'darwin';
-  const n = 32, buf = Buffer.alloc(n * n * 4);
-  const ring = (px, py, cx, cy, r, w) => Math.abs(Math.hypot(px - cx, py - cy) - r) <= w / 2;
-  for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) {
-    const i = (y * n + x) * 4, px = x + .5, py = y + .5;
-    const inside = Math.hypot(px - 16, py - 16) <= 15.5;
-    const a = Math.atan2(16 - py, px - 16) * 180 / Math.PI;
-    const c = ring(px, py, 16, 16, 10.5, 3.6) && Math.abs(a) > 48;
-    const eye = ring(px, py, 14.1, 14.6, 2.2, 1.5) || ring(px, py, 20.4, 14.6, 2.2, 1.5);
-    const white = c || eye;
-    // BGRA
-    if (mac) { buf[i] = buf[i + 1] = buf[i + 2] = 0; buf[i + 3] = white ? 255 : 0; continue; }
-    buf[i] = white ? 255 : 0x70; buf[i + 1] = white ? 255 : 0xA8; buf[i + 2] = white ? 255 : 0x00; buf[i + 3] = inside ? 255 : 0;
-  }
-  const img = nativeImage.createFromBitmap(buf, { width: n, height: n, scaleFactor: mac ? 2 : 1 });
-  if (mac) img.setTemplateImage(true);
-  return img;
+  return nativeImage.createFromPath(WINDOW_ICON).resize({ width: 32, height: 32 });
 }
 
 function runPetHost({ url, parentPid = 0, tray: withTray = true }) {
@@ -191,7 +173,7 @@ function runPetHost({ url, parentPid = 0, tray: withTray = true }) {
       x: wa.x, y: wa.y, width: wa.width, height: wa.height,
       transparent: true, frame: false, resizable: false, movable: false, minimizable: false, maximizable: false,
       fullscreenable: false, skipTaskbar: true, hasShadow: false, alwaysOnTop: true, show: false,
-      backgroundColor: '#00000000', title: 'Cortico 桌宠',
+      icon: WINDOW_ICON, backgroundColor: '#00000000', title: 'Cortico 桌宠',
       webPreferences: {
         preload: join(__dirname, 'preload.cjs'),
         contextIsolation: true, sandbox: true, backgroundThrottling: false,
@@ -231,7 +213,7 @@ function runPetHost({ url, parentPid = 0, tray: withTray = true }) {
 
   const openDress = (target = `${origin}/dress`) => {
     if (dress) { dress.show(); dress.focus(); return; }
-    dress = new BrowserWindow({ width: 980, height: 720, title: '桌宠装扮', autoHideMenuBar: true, webPreferences: { contextIsolation: true, sandbox: true } });
+    dress = new BrowserWindow({ width: 980, height: 720, icon: WINDOW_ICON, title: '桌宠装扮', autoHideMenuBar: true, webPreferences: { contextIsolation: true, sandbox: true } });
     dress.on('closed', () => { dress = null; });
     dress.loadURL(target);
   };

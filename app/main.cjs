@@ -52,6 +52,7 @@ if (process.argv.includes('--pet-host')) {
   const arg = (name) => { const hit = process.argv.find((a) => a.startsWith(`--${name}=`)); return hit ? hit.slice(name.length + 3) : ''; };
   app.setPath('userData', join(app.getPath('userData'), 'pet-window'));
   if (MAC) app.dock?.hide();
+  if (process.platform === 'win32') app.setAppUserModelId('io.github.kiven72.jingjingyu');
   const { runPetHost } = require(require.resolve('cortico-world-desktop-pet/host/electron-main.cjs'));
   runPetHost({ url: arg('pet-url'), parentPid: Number(arg('parent-pid')) || 0, tray: false });
   return;
@@ -258,7 +259,7 @@ app.on('before-quit', (e) => {
 });
 
 app.whenReady().then(() => {
-  app.setAppUserModelId('ai.pal.coopanion');
+  app.setAppUserModelId('io.github.kiven72.jingjingyu');
   buildTray();
   noteAutostart();
   core.start();

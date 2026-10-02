@@ -17,7 +17,7 @@
 
 ## 上游一致性
 
-角色 pet-core.js、whale/figure.js、rig/rig.js、rig/canvas-rig.js、模型 JSON、贴图和原生透明窗口宿主保持上游内容。角色侧差异集中于 pet-app.js、pet.html、pet.css 和新增的本地回复文件。
+角色 pet-core.js、whale/figure.js、rig/rig.js、rig/canvas-rig.js、模型 JSON、贴图保持上游内容。角色侧差异集中于 pet-app.js、pet.html、pet.css 和新增的本地回复文件。
 
 配置、窗口通信、装扮和部署加载仍依赖 Cortico 共用代码，源码包保留固定上游依赖，没有替换渲染实现。完整文件差异见 upstream-audit.json。
 
@@ -36,4 +36,7 @@
 
 原开发目录的旧文档、CI 和宣传文件未批量删除：自动审批认为删除范围过大，采用独立发布目录排除这些文件。
 
-Windows 使用 Electron 44.5.1，与已验证预览一致。未测试 macOS、Linux，未向 GitHub 上传。
+Windows 使用 Electron 44.5.1，与已验证预览一致。未测试 macOS、Linux，源码已上传 GitHub。
+
+
+Application icon correction: pet and dress native windows use whale-icon.png; all tray variants use the existing whale artwork. Windows application identity is io.github.kiven72.jingjingyu. Native hit-testing and rendering behavior are unchanged. GitHub repository: https://github.com/kiven72/jingjingyu
