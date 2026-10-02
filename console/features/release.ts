@@ -5,19 +5,19 @@
 import { pick } from '../core/language.ts';
 import { APP_VERSION } from '../app-version.ts';
 
-export const REPO_URL = 'https://github.com/Pal-AI-Lab/Coopanion';
-const RELEASE_API = 'https://api.github.com/repos/Pal-AI-Lab/Coopanion/releases/latest';
+export const REPO_URL = 'https://github.com/kiven72/jingjingyu';
+const RELEASE_API = 'https://api.github.com/repos/kiven72/jingjingyu/releases/latest';
 /** 与 Cortico 控制台查框架 Release 同一时限。 */
 const RELEASE_TIMEOUT_MS = 15_000;
 
 const S = pick({
   zh: {
-    repoHint: '在 GitHub 上打开 Coopanion 项目',
-    update: (latest: string) => `Coopanion ${latest} 已发布,点这里下载更新`,
+    repoHint: '在 GitHub 上打开 鲸鲸鱼 项目',
+    update: (latest: string) => `鲸鲸鱼 ${latest} 已发布,点这里下载更新`,
   },
   en: {
-    repoHint: 'Open the Coopanion project on GitHub',
-    update: (latest: string) => `Coopanion ${latest} is out: download the update`,
+    repoHint: 'Open the 鲸鲸鱼 project on GitHub',
+    update: (latest: string) => `鲸鲸鱼 ${latest} is out: download the update`,
   },
 });
 
